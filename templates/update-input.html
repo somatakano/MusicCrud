@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>更新内容入力</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #ffffff;
+    text-shadow: 2px 2px 4px #000000;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #1e90ff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+form {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+
+label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    align-self: flex-start;
+}
+
+input[type="text"], input[type="submit"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #444444;
+    background-color: #333333;
+    color: #ffffff;
+}
+
+input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+input[type="submit"]:hover {
+    background-color: #555555;
+    transform: scale(1.05);
+}
+
+input[type="submit"]:active {
+    background-color: #777777;
+    transform: scale(1);
+}
+</style>
+
+</head>
+<body>
+<h1>楽曲操作システム★更新内容入力</h1>
+<p><a th:href="@{/move}">←トップへ戻る</a></p>
+<form th:action="@{/updateComp}" method="post" th:object="${musicForm}">
+<input type="hidden" th:field="*{song_id}" />
+<p>曲名: <input type="text" th:field="*{song_name}" /></p>
+<p>歌手: <input type="text" th:field="*{singer}" /></p>
+<input type="submit" value="更新">
+</form>
+</body>
+</html>
